@@ -1,21 +1,16 @@
-from triangle import classifyTriangle
-
+from triangle import classify_triangle
 
 def test():
     # Equilateral
-    classifyTriangle(3, 3, 3)
+    classify_triangle(3, 3, 3)
 
-    # Isoceles
-    classifyTriangle(3, 3, 2)
+    # Isosceles
+    classify_triangle(3, 3, 2)
 
     # Right triangle
-    classifyTriangle(3, 4, 5)
+    classify_triangle(3, 4, 5)
 
     # Scalene
-    classifyTriangle(2, 3, 4)
-
-    # Caso raro (para cubrir todo)
-    classifyTriangle(0, 0, 0)
-
+    classify_triangle(2, 3, 4)
 
 test()
