@@ -64,8 +64,9 @@ def test():
     # Change l to something that manages full coverage. You may
     # need to call stats twice with different input in order
     # to achieve full coverage.
+    
     # SOLUCION:
-    stats([18,19,20,20,21]) # impar
-    stats([20,18,19,17]) # par
+    stats([18,19,20,20,21]) # lenght impar + elemento repetido
+    stats([20,18,19,17]) # lenght par
 
 test()
