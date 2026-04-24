@@ -46,7 +46,7 @@ def stats(lst):
 
 
 #-----------------------------------------
-# FUNCION DE TEST (ASSERTS + MENSAJE)
+# FUNCION DE TEST (ASSERTS + MENSAJE FEEDBACK)
 #-----------------------------------------
 
 def run_test(test_name, lst, expected):
