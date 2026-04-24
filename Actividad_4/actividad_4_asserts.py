@@ -46,63 +46,62 @@ def stats(lst):
 
 
 #-----------------------------------------
-# FUNCION AUXILIAR PARA VALIDAR
+# FUNCION DE TEST (ASSERTS + MENSAJE)
 #-----------------------------------------
 
-def check(test_name, result, expected):
+def run_test(test_name, lst, expected):
+    result = stats(lst)
+
     print(f"\n--- {test_name} ---")
 
     labels = ["min", "max", "median", "mode"]
 
     for i in range(4):
-        if result[i] == expected[i]:
-            print(f"✔ {labels[i]} correcto")
-        else:
-            print(f"❌ {labels[i]} incorrecto → esperado {expected[i]}, obtenido {result[i]}")
+        try:
+            assert result[i] == expected[i]
+            print(f"[✓ OK] {labels[i]} correcto")
+        except AssertionError:
+            print(f"[✗ ERROR] {labels[i]} incorrecto → esperado {expected[i]}, obtenido {result[i]}")
 
 
 #-----------------------------------------
-# TEST 1: CASOS ORIGINALES
+# TESTS
 #-----------------------------------------
 
 def test_original():
-    print("TEST 1: Casos originales (NO detectan errores claramente)")
+    print("TEST 1: Casos originales")
 
-    # Caso impar
-    result = stats([18,19,20,20,21])
-    expected = (18,21,20,[20])
-    check("Caso impar", result, expected)
+    run_test(
+        "Caso impar",
+        [18,19,20,20,21],
+        (18,21,20,[20])
+    )
 
-    # Caso par
-    result = stats([20,18,19,17])
-    expected = (17,20,18.5,[20,18,19,17])
-    check("Caso par", result, expected)
+    run_test(
+        "Caso par",
+        [20,18,19,17],
+        (17,20,18.5,[20,18,19,17])
+    )
 
-
-#-----------------------------------------
-# TEST 2: BUG DE VALORES NEGATIVOS
-#-----------------------------------------
 
 def test_bug_abs():
     print("\nTEST 2: Detectando bug de valores negativos")
 
-    result = stats([-3,-4])
-    expected = (-4,-3,-3.5,[-3,-4])
+    run_test(
+        "Caso negativos",
+        [-3,-4],
+        (-4,-3,-3.5,[-3,-4])
+    )
 
-    check("Caso negativos", result, expected)
-
-
-#-----------------------------------------
-# TEST 3: BUG DE FRECUENCIA
-#-----------------------------------------
 
 def test_bug_freq():
     print("\nTEST 3: Detectando bug de frecuencia")
 
-    result = stats([1,1,2])
-    expected = (1,2,1,[1])
-
-    check("Caso frecuencia", result, expected)
+    run_test(
+        "Caso frecuencia",
+        [1,1,2],
+        (1,2,1,[1])
+    )
 
 
 #-----------------------------------------
