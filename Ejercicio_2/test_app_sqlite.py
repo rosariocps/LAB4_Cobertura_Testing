@@ -12,7 +12,7 @@ from app_sqlite import (
 
 class TestAppSQLite(unittest.TestCase):
 
-    def setUp(self):
+    def setUp(self): #Se ejecuta ANTES de cada test
         self.conexion = sqlite3.connect(":memory:")
         crear_tabla(self.conexion)
 
