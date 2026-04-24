@@ -67,18 +67,22 @@ def add8(a0,a1,a2,a3,a4,a5,a6,a7,b0,b1,b2,b3,b4,b5,b6,b7,c0):
 
 
 def test():
+
+    # caso 1: todos 0 → no hay suma ni acarreo
     add8(False, False, False, False, False, False, False, False,
          False, False, False, False, False, False, False, False, False)
 
+    # caso 2: 1 + 1 en el primer bit → genera acarreo inicial
     add8(True, False, False, False, False, False, False, False,
          True, False, False, False, False, False, False, False, False)
 
+    # caso 3: todos 1 → genera acarreo en cadena (propagación completa)
     add8(True, True, True, True, True, True, True, True,
          True, True, True, True, True, True, True, True, False)
-    
-    add8(True, False, False, False, False, False, False, False,
-     False, False, False, False, False, False, False, False,
-     False)
 
+    # caso 4: 1 + 0 → suma sin acarreo (activa s = True)
+    add8(True, False, False, False, False, False, False, False,
+         False, False, False, False, False, False, False, False,
+         False)
 
 test()
