@@ -10,7 +10,6 @@ from app_sqlite import (
     conectar_bd
 )
 
-
 class TestAppSQLite(unittest.TestCase):
 
     def setUp(self):
@@ -78,6 +77,7 @@ class TestAppSQLite(unittest.TestCase):
         with self.assertRaises(ValueError):
             actualizar_edad(self.conexion, 1, -10)
 
+    #
     def test_conectar_bd(self):
         conn = conectar_bd(":memory:")
         self.assertIsNotNone(conn)
