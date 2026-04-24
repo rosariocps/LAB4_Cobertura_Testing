@@ -33,8 +33,15 @@ def test():
     assert isPrime(22) == False
     assert isPrime(23) == True
     assert isPrime(24) == False
+    #assert isPrime(9) == False
+    #assert isPrime(25) == False
+    #assert isPrime(49) == False
+    #assert isPrime(121) == False
 
     assert isPrime2(9) == False
+    assert isPrime2(25) == False
+    assert isPrime2(49) == False
+    assert isPrime2(121) == False
     assert isPrime2(2) == True
     assert isPrime2(23) == True
 
